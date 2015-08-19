@@ -1,0 +1,287 @@
+#=========================================================================
+# Makefile for Modular Verilog Build System
+#=========================================================================
+# This is a simple start to a much more sophisticated Verilog build
+# system. For most projects, a developer will not need to make any
+# changes to this file except to make sure that the subprojs make
+# variable correctly lists the desired subprojects to include in this
+# project. Developers also need to make sure each subproject makefile
+# fragment (e.g., vc.mk) is uptodate with a list of all of the subproject
+# dependencies, Verilog source files, test source files, and simultor
+# source files. The key targets for this Makefile are as follows:
+#
+#  - default   : build all simulators
+#  - check     : build and run all unit tests
+#  - clean     : remove all generated content
+#
+
+#-------------------------------------------------------------------------
+# Basic setup
+#-------------------------------------------------------------------------
+
+# Remove all default implicit rules since they can cause subtle bugs
+# and they just make things run slower
+
+.SUFFIXES:
+% : %,v
+% : RCS/%,v
+% : RCS/%
+% : s.%
+% : SCCS/s.%
+
+# Delete a target if there is an error when we try to make the target
+
+.DELETE_ON_ERROR:
+
+# Default is to build the prereqs of the all target (defined at bottom)
+
+default : all
+.PHONY : default
+
+project_name := @PACKAGE_TARNAME@
+top_dir     = @srcdir@
+src_dir     = $(top_dir)
+scripts_dir = $(top_dir)/scripts
+
+# Grab the list of subprojects
+
+include $(top_dir)/subprojs.mk
+
+#-------------------------------------------------------------------------
+# Programs
+#-------------------------------------------------------------------------
+
+VMKDEPS     = $(scripts_dir)/mk-verilog-deps
+
+VCOMP       = @vcomp@
+VCOMP_FLAGS = @vcomp_flags@
+
+VPP         = @vpp@
+VPP_FLAGS   = @vpp_flags@
+
+PYTHON      = @python@
+
+#-------------------------------------------------------------------------
+# Makefile fragments from subprojects
+#-------------------------------------------------------------------------
+
+subprojs_mk := \
+  $(join $(addprefix $(src_dir)/, $(subprojs)), \
+         $(patsubst %, /%.mk, $(subprojs)))
+
+-include $(subprojs_mk)
+VPATH := $(addprefix $(src_dir)/, $(subprojs))
+
+#-------------------------------------------------------------------------
+# Template for per subproject rules
+#-------------------------------------------------------------------------
+
+# Helper template for python-generated verilog
+
+define py_split_template
+$(1).py.v : %.py.v : $(2).py
+	$(PYTHON) $$< $(3) > $$@
+endef
+
+# Main subproject template
+
+define subproj_template
+
+# Subproject subdirectory
+
+$(2)_dir := $$(addprefix $(src_dir)/, $(1))
+
+# Subproject make fragment
+
+$(2)_mk := $(1).mk
+
+# Subproject include dependencies
+
+$(2)_incs := $$(addprefix -I $(src_dir)/, $$($(2)_deps))
+
+# Build python-generated verilog
+
+$$(foreach file,$$(patsubst %.py.v, %, $$($(2)_pyv_srcs)), \
+  $$(eval $$(call py_split_template,$$(file), \
+    $$(firstword $$(subst _, ,$$(file))), \
+    $$(filter-out $$(firstword $$(subst _, ,$$(file))), \
+    $$(subst _, ,$$(file))))))
+
+$(2)_junk += $$($(2)_pyv_srcs)
+
+# Create dependency files for unit tests
+
+$(2)_test_deps := $$(patsubst %.t.v,%.t.d,$$($(2)_test_srcs))
+
+$$($(2)_test_deps) : %.t.d : %.t.v
+	$(VMKDEPS) -I $(src_dir)/vc -I $(src_dir)/$(1) $$($(2)_incs) $$*-test $$<
+
+$(2)_deps += $$($(2)_test_deps)
+$(2)_junk += $$($(2)_test_deps)
+
+# Build unit tests
+
+$(2)_test_exes := $$(patsubst %.t.v,%-test,$$($(2)_test_srcs))
+
+$$($(2)_test_exes) : %-test : %.t.v
+	$(scripts_dir)/warnings2errors \
+    $(VCOMP) $(VCOMP_FLAGS) -o $$@ \
+    -I $(src_dir)/vc -I $(src_dir)/$(1) $$($(2)_incs) $$<
+
+$(2)_junk += $$($(2)_test_exes)
+
+# Run unit tests
+
+$(2)_test_outs := $$(addsuffix .out, $$($(2)_test_exes))
+
+$$($(2)_test_outs) : %.out : %
+	./$$< +verbose=2 > $$@
+
+$(2)_junk += \
+  $$($(2)_test_outs) \
+  $$(patsubst %.out,%.vcd,$$($(2)_test_outs)) \
+
+# Unit test summary
+
+$(2)_test_summary_out = $(1)-test-summary.out
+
+$$($(2)_test_summary_out) : $$($(2)_test_outs)
+	cat $$($(2)_test_outs) > $(1)-test-summary.out
+
+check-$(1) : $$($(2)_test_summary_out)
+	$(scripts_dir)/test-summary --verbose $(1)-test-summary.out
+
+$(2)_junk += $$($(2)_test_summary_out)
+
+# Create dependency files for simulators
+
+$(2)_sim_deps := $$(patsubst %.v,%.d,$$($(2)_sim_srcs))
+
+$$($(2)_sim_deps) : %.d : %.v
+	$(VMKDEPS) -I $(src_dir)/$(1) $$($(2)_incs) $$* $$<
+
+$(2)_deps += $$($(2)_sim_deps)
+$(2)_junk += $$($(2)_sim_deps)
+
+# Build simulators
+
+$(2)_sim_exes := $$(patsubst %.v, %, $$($(2)_sim_srcs))
+
+$$($(2)_sim_exes) : % : %.v
+	$(scripts_dir)/warnings2errors \
+    $(VCOMP) $(VCOMP_FLAGS) -o $$@ \
+    -I $(src_dir)/$(1) $$($(2)_incs) $$<
+
+$(2)_junk += $$($(2)_sim_exes)
+
+# Evaluation
+
+$(2)_junk += $$($(2)_eval_outs)
+
+# Other subpkg specific targets
+
+all-$(1) : $$($(2)_sim_exes)
+
+clean-$(1) :
+	rm -rf $$($(2)_junk)
+
+.PHONY : all-$(1) check-$(1) eval-$(1) clean-$(1)
+
+# Update running variables
+
+deps              += $$($(2)_deps)
+exes              += $$($(2)_sim_exes)
+test_outs         += $$($(2)_test_outs)
+test_summary_outs += $$($(2)_test_summary_out)
+eval_outs         += $$($(2)_eval_outs)
+junk              += $$($(2)_junk)
+
+endef
+
+# Call template for each subproject
+
+$(foreach subproj,$(subprojs), \
+  $(eval $(call subproj_template,$(subproj),$(subst -,_,$(subproj)))))
+
+#-------------------------------------------------------------------------
+# Autodependency files
+#-------------------------------------------------------------------------
+
+-include $(deps)
+
+deps : $(deps)
+.PHONY : deps
+
+#-------------------------------------------------------------------------
+# Check
+#-------------------------------------------------------------------------
+
+check : $(test_summary_outs)
+	$(scripts_dir)/test-summary $(test_summary_outs)
+
+.PHONY : check
+
+#-------------------------------------------------------------------------
+# Regenerate configure information
+#-------------------------------------------------------------------------
+
+configure_prereq = \
+  $(top_dir)/configure.ac \
+  $(top_dir)/aclocal.m4 \
+
+$(top_dir)/configure : $(configure_prereq)
+	cd $(top_dir) && autoconf
+
+config.status : $(top_dir)/configure
+	./config.status --recheck
+
+makefile_prereq = \
+  config.status \
+  $(top_dir)/Makefile.in \
+
+Makefile : $(makefile_prereq)
+	./config.status
+
+dist_junk += \
+  config.status Makefile config.log \
+
+#-------------------------------------------------------------------------
+# Rules to generate harness for tutorial
+#-------------------------------------------------------------------------
+
+tut3-verilog-harness :
+	$(scripts_dir)/gen-harness --verbose \
+    ece4750-tut3-verilog \
+    $(src_dir) \
+    $(src_dir)/scripts/tutorial-gen-harness-cfg
+
+.PHONY: tut3-verilog-harness
+
+junk += ece4750-tut3-verilog ece4750-tut3-verilog.tar.gz
+
+#-------------------------------------------------------------------------
+# Default
+#-------------------------------------------------------------------------
+
+all : $(exes)
+.PHONY : all
+
+#-------------------------------------------------------------------------
+# Makefile debugging
+#-------------------------------------------------------------------------
+# This handy rule will display the contents of any make variable by using
+# the target echo-<varname>. So for example, make echo-junk will display
+# the contents of the junk variable.
+
+echo-% :
+	@echo $* = $($*)
+
+#-------------------------------------------------------------------------
+# Clean up junk
+#-------------------------------------------------------------------------
+
+clean :
+	rm -rf *~ \#* *.v *.vcd *.stats a.out *-pygen-hack $(junk)
+
+.PHONY : clean
+

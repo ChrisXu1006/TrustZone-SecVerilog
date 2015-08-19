@@ -1,0 +1,35 @@
+(dp0
+S'engine'
+p1
+S'pdflatex'
+p2
+sS'packages'
+p3
+c__builtin__
+set
+p4
+((lp5
+S'color'
+p6
+aS'graphicx'
+p7
+aS'inconsolata'
+p8
+atp9
+Rp10
+sS'files_with_guttermarks'
+p11
+g4
+((lp12
+S'/Users/kokkyounominamirui/Desktop/Thesis/system-NSbit/./Introduction of Simple NSbit-System.tex'
+p13
+aS'Introduction of Simple NSbit-System.tex'
+p14
+aS'/Users/kokkyounominamirui/Desktop/Thesis/system-NSbit/Introduction of Simple NSbit-System.tex'
+p15
+atp16
+Rp17
+sS'synctex'
+p18
+I01
+s.

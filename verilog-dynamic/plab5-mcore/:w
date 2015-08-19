@@ -1,0 +1,85 @@
+//========================================================================
+// Memory Access Control Module 
+//========================================================================
+
+`ifndef PLAB5_MCORE_MEM_ACC_V
+`define PLAB5_MCORE_MEM_ACC_V
+
+`include "vc-mem-msgs.v"
+
+module plab5_mcore_mem_acc
+#(
+	parameter req_cnbits	= 32,
+	parameter req_dnbtis	= 32,
+	parameter resp_cnbits	= 32,
+	parameter resp_dnbits	= 32,
+)
+(
+	input						clk,
+
+	// requests security level
+	input						req_sec_level,
+	// responses from memory's security level
+	output						resp_sec_level,
+	
+	// Module's security level
+	input						mem_sec_level,
+
+	// Inputs of requests
+	input	[req_cnbits-1:0]	net_req_control,
+	input	[req_dnbits-1:0]	net_req_data,
+	input						net_req_val,
+	output						net_req_rdy,
+
+	// outputs to the memory side
+	output	[req_cnbits-1:0]	mem_req_control,
+	output	[req_dnbits-1:0]	mem_req_data,
+	output						mem_req_val,
+	input						mem_req_rdy,
+
+	// Output of responses
+	output	[resp_cnbits-1:0]	net_resp_control,
+	output	[resp_dnbits-1:0]	net_resp_data,
+	output						net_resp_val,
+	input						net_resp_rdy,
+
+	// Inputs from the memory side
+	input	[resp_cnbits-1:0]	mem_resp_control,
+	input	[resp_dnbits-1:0]	mem_resp_data,
+	input						mem_resp_val,
+	output						mem_resp_rdy
+);
+
+	// Deal with request side
+	always @(posedge clk) begin
+
+		// If request security level is larger or equal to
+		// memory security level, we pass them to memories
+		if ( req_sec_level >= mem_sec_level ) begin
+			mem_req_control <= net_req_control;
+			mem_req_data	<= net_req_data;
+			mem_req_val		<= net_req_val;
+			net_req_rdy		<= mem_req_rdy;
+		end
+
+		// if request security level is less than memory
+		// security level, we will block corresponding operations
+		// we only disable the valid signal
+		else if ( req_sec_level < mem_sec_level ) begin
+			mem_req_val		<= 1'b0;
+		end
+
+	end
+
+
+	// Deal with response side
+	always @(posedge clk) begin
+
+		// If requst security level is less than memory
+		// security level, we set response return message to be
+		// x's	
+
+	end
+
+endmodule
+`endif /*PLAB5_MCORE_MEM_ACC_V*/

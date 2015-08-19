@@ -1,0 +1,19 @@
+#=========================================================================
+# utst-lite.mk.in
+#=========================================================================
+
+utst_lite_intdeps =  @utst_lite_intdeps@
+utst_lite_cppflags = @utst_lite_cppflags@
+utst_lite_ldflags =  @utst_lite_ldflags@
+utst_lite_libs =     @utst_lite_libs@
+
+utst_lite_srcs += \
+  utst-lite-addiu.S \
+  utst-lite-addu.S \
+  utst-lite-bne.S \
+  utst-lite-lui.S \
+  utst-lite-lw.S \
+  utst-lite-sw.S \
+  utst-lite-j.S \
+
+utst_lite_install_prog_srcs += \

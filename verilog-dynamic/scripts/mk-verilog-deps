@@ -1,0 +1,228 @@
+#!/usr/bin/env python
+#=========================================================================
+# mk-verilog-deps [options] <exe-file-name> <src-file-name>
+#=========================================================================
+#
+#  -h --help         Display this message
+#  -v --verbose      Verbose mode
+#  -I --include-dir  Include directory
+#
+# Create a makefile fragment with dependencies for the given input
+# Verilog file.
+#
+# Author : Christopher Batten
+# Date   : September 9, 2013
+#
+
+import argparse
+import sys
+import re
+import os
+import os.path
+import string
+import sys
+import shutil
+import glob
+
+#-------------------------------------------------------------------------
+# Command line processing
+#-------------------------------------------------------------------------
+
+class ArgumentParserWithCustomError(argparse.ArgumentParser):
+  def error( self, msg = "" ):
+    if ( msg ): print("\n ERROR: %s" % msg)
+    print("")
+    file = open( sys.argv[0] )
+    for ( lineno, line ) in enumerate( file ):
+      if ( line[0] != '#' ): sys.exit(msg != "")
+      if ( (lineno == 2) or (lineno >= 4) ): print( line[1:].rstrip("\n") )
+
+def parse_cmdline():
+  p = ArgumentParserWithCustomError( add_help=False )
+  p.add_argument( "-v", "--verbose",     action="store_true" )
+  p.add_argument( "-h", "--help",        action="store_true" )
+  p.add_argument( "-I", "--include-dir", action="append" )
+  p.add_argument( "exe_file_name" )
+  p.add_argument( "src_file_name" )
+  opts = p.parse_args()
+  if opts.help: p.error()
+  return opts
+
+#-------------------------------------------------------------------------
+# Verbose print
+#-------------------------------------------------------------------------
+
+verbose = False
+def vprint( msg, value=None ):
+  if verbose:
+    if value != None:
+      print msg, value
+    else:
+      print msg
+
+#-------------------------------------------------------------------------
+# Main
+#-------------------------------------------------------------------------
+
+def main():
+  opts = parse_cmdline()
+
+  global verbose
+  verbose = opts.verbose
+
+  vprint("")
+
+  # Create a list of directories to search for included files
+
+  include_dirs = [ "." ]
+  include_dirs.extend( opts.include_dir )
+  vprint( " - include dirs:", include_dirs )
+
+  # The master file name list we will add to as we go along
+
+  exe_file_name = opts.exe_file_name
+  src_file_name = opts.src_file_name
+  file_name_list = [ src_file_name ]
+
+  src_file_basename = os.path.basename( src_file_name )
+  if src_file_basename.endswith(".v"):
+    src_file_basename = src_file_basename[:-2]
+  else:
+    print "ERROR: given input file does not end in .v"
+    exit(1)
+
+  # The pattern we use to find includes. Note that this is a little hacky
+  # for now in terms of trying to ignore include lines with a leading
+  # comment. We check for # and also /, when really we should be checking
+  # for //
+
+  include_pattern = re.compile(r'^[^#/]*`include "(.*)"\s*$')
+
+  # List of verilog files that do not exist
+
+  unfound_file_name_list = []
+
+  # List of python-generated verilog files
+
+  pygen_file_name_list = []
+
+  # Pattern for python-generated verilog files
+
+  pygen_pattern = re.compile(r'^(.*)\.py\.v$')
+
+  # Find all includes that the give input file depends on
+
+  for file_name in file_name_list:
+
+    line_num = 0
+    for line in open( file_name ):
+      line_num = line_num + 1
+
+      match_include = include_pattern.match(line)
+
+      if match_include:
+        include_file_name = match_include.group(1)
+
+        # Is this a pygen file?
+
+        match_pygen = pygen_pattern.match( match_include.group(1) )
+
+        # Find full path for include
+
+        if match_pygen:
+
+          vprint(" - pygen:", include_file_name )
+          pygen_file_name_list.append( include_file_name )
+
+        else:
+
+          include_file_path = include_file_name
+          include_file_path_found = False
+          for include_dir in include_dirs:
+
+            include_file_path \
+              = os.path.join( include_dir, include_file_name )
+
+            if os.path.exists( include_file_path ):
+              include_file_path_found = True
+              break
+
+          # Could not find include file. Originally I printed an error
+          # message and then exited without creating the .d file, but
+          # this would cause make to go into an infinite loop if it could
+          # not find a verilog file. So for now we keep going.
+
+          if not include_file_path_found:
+            vprint(" - include file {} not found", include_file_path )
+            unfound_file_name_list.append( include_file_path )
+
+          elif include_file_path not in file_name_list:
+            vprint(" - include:", include_file_path )
+            file_name_list.append( include_file_path )
+
+  # Create a makefile fragment
+
+  deps_mk_file_name = src_file_basename + ".d"
+
+  vprint( " - making makefile fragment:", deps_mk_file_name )
+
+  deps_mk_file = open( deps_mk_file_name, "w" )
+  deps_mk_file.write(
+'''
+#=========================================================================
+# Makefile dependency fragment
+#=========================================================================
+
+'''.lstrip())
+
+  # Output dependencies for primary target
+
+  deps_mk_file.write( "{}: \\\n" \
+    .format(exe_file_name) )
+
+  for file_name in file_name_list:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "  {} \\\n".format(file_basename) )
+
+  for file_name in unfound_file_name_list:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "  {} \\\n".format(file_basename) )
+
+  for file_name in pygen_file_name_list:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "  {} \\\n".format(file_basename) )
+
+  deps_mk_file.write( "\n" )
+
+  # Output dependencies for .d file (excludes generated content)
+
+  deps_mk_file.write( "{}: \\\n" \
+    .format(deps_mk_file_name) )
+
+  for file_name in file_name_list:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "  {} \\\n".format(file_basename) )
+
+  deps_mk_file.write( "\n" )
+
+  # Provide default rules for all dependencies
+
+  for file_name in file_name_list[1:]:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "{}:\n".format(file_basename) )
+    deps_mk_file.write( "\n" )
+
+  for file_name in unfound_file_name_list:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "{}:\n".format(file_basename) )
+    deps_mk_file.write( "\n" )
+
+  for file_name in pygen_file_name_list:
+    file_basename = os.path.basename(file_name)
+    deps_mk_file.write( "{}:\n".format(file_basename) )
+    deps_mk_file.write( "\n" )
+
+  vprint("")
+
+main()
+

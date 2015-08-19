@@ -1,0 +1,210 @@
+#!/usr/bin/env python
+#=========================================================================
+# test-summary [options] <sproj-test-summary.out> ...
+#=========================================================================
+#
+#  -h --help     Display this message
+#  -v --verbose  Verbose mode
+#
+# Create a summary of the unit test results.
+#
+# Author : Christopher Batten
+# Date   : September 13, 2013
+#
+
+import argparse
+import sys
+import re
+
+#-------------------------------------------------------------------------
+# Command line processing
+#-------------------------------------------------------------------------
+
+class ArgumentParserWithCustomError(argparse.ArgumentParser):
+  def error( self, msg = "" ):
+    if ( msg ): print("\n ERROR: %s" % msg)
+    print("")
+    file = open( sys.argv[0] )
+    for ( lineno, line ) in enumerate( file ):
+      if ( line[0] != '#' ): sys.exit(msg != "")
+      if ( (lineno == 2) or (lineno >= 4) ): print( line[1:].rstrip("\n") )
+
+def parse_cmdline():
+  p = ArgumentParserWithCustomError( add_help=False )
+  p.add_argument( "-v", "--verbose",    action="store_true" )
+  p.add_argument( "-h", "--help",       action="store_true" )
+  p.add_argument( "-S", "--subproject", action="append" )
+  p.add_argument( "test_outs", nargs="+" )
+  opts = p.parse_args()
+  if opts.help: p.error()
+  return opts
+
+#-------------------------------------------------------------------------
+# print_passfail
+#-------------------------------------------------------------------------
+
+def print_passfail( prefix, num_passed, num_failed, msg ):
+
+  if num_failed > 0:
+    print prefix, "[ \033[91mFAILED\033[0m ] ",
+  else:
+    print prefix, "[ \033[92mpassed\033[0m ] ",
+
+  print "P:{:3} F:{:3}  {}".format( num_passed, num_failed, msg )
+
+#-------------------------------------------------------------------------
+# Main
+#-------------------------------------------------------------------------
+
+def main():
+  opts = parse_cmdline()
+
+  if not opts.verbose:
+    print ""
+
+  # Iterate over the subpackages
+
+  sproj_pattern = re.compile(r'^(.*)-test-summary.out$')
+
+  suite_pattern  = re.compile(r'^ Test Suite: (.*)$')
+  case_pattern   = re.compile(r'^  \+ Test Case [^:]+: (.*)$')
+  passed_pattern = re.compile(r'^.*passed.*$')
+  failed_pattern = re.compile(r'^.*(FAILED|ERROR).*$')
+
+  total_num_sprojs        = len(opts.test_outs)
+  total_num_sprojs_passed = 0
+  total_num_sprojs_failed = 0
+
+  total_num_suites        = 0
+  total_num_suites_passed = 0
+  total_num_suites_failed = 0
+
+  total_num_cases         = 0
+  total_num_cases_passed  = 0
+  total_num_cases_failed  = 0
+
+  for test_out in opts.test_outs:
+
+    # Get the name of the subpackage
+
+    sproj_name = None
+    match_sproj = sproj_pattern.match( test_out )
+    if match_sproj:
+      sproj_name = match_sproj.group(1)
+    else:
+      # NOTE: turned this error into a warning
+      print "WARNING: unrecognized filename pattern for .out"
+      #exit(1)
+
+    # Display subpackage name if verbose output
+
+    if opts.verbose:
+      print ""
+      print " Subproject:", sproj_name
+      print ""
+
+    # Scan through this subpackage test output file
+
+    suite_name        = None
+    num_suites_passed = 0
+    num_suites_failed = 0
+
+    case_name        = None
+    case_passed      = True
+    num_cases_passed = 0
+    num_cases_failed = 0
+
+    for line in open(test_out):
+
+      # Determine if this line contains a test suite or test case
+
+      match_suite = suite_pattern.match(line)
+      if match_suite:
+
+        if case_name != None and case_passed:
+          total_num_cases_passed += 1
+          num_cases_passed       += 1
+
+        if suite_name != None:
+          if num_cases_failed == 0:
+            total_num_suites_passed += 1
+            num_suites_passed += 1
+          else:
+            total_num_suites_failed += 1
+            num_suites_failed += 1
+
+        if opts.verbose and suite_name != None:
+          print_passfail( "", num_cases_passed, num_cases_failed, suite_name )
+
+        total_num_suites += 1
+        suite_name       = match_suite.group(1)
+        case_name        = None
+        case_passed      = True
+        num_cases_passed = 0
+        num_cases_failed = 0
+
+      match_case = case_pattern.match(line)
+      if match_case:
+        if case_name != None and case_passed:
+          total_num_cases_passed += 1
+          num_cases_passed       += 1
+
+        total_num_cases  += 1
+        case_name        = match_case.group(1)
+        case_passed      = True
+
+      # Determine if this line contains a test result
+
+      match_passed = passed_pattern.match(line)
+      match_failed = failed_pattern.match(line)
+
+      # Update counts appropriately
+
+      if match_passed or match_failed:
+        if not match_passed and case_passed:
+          total_num_cases_failed += 1
+          num_cases_failed       += 1
+          case_passed = False
+
+    # Handle final test case
+
+    if case_name != None and case_passed:
+      total_num_cases_passed += 1
+      num_cases_passed       += 1
+
+    # Handle final test suite
+
+    if suite_name != None:
+      if num_cases_failed == 0:
+        total_num_suites_passed += 1
+        num_suites_passed += 1
+      else:
+        total_num_suites_failed += 1
+        num_suites_failed += 1
+
+    if opts.verbose:
+      print_passfail( "", num_cases_passed, num_cases_failed, suite_name )
+
+    # Display summary for this subpackage
+
+    if not opts.verbose:
+      print_passfail( "", num_suites_passed, num_suites_failed, sproj_name )
+
+  # Print out summary for entire package
+
+  print ""
+  print " Test Summary:"
+
+  if opts.verbose:
+    print "  - Number of test suites        : {:>3}".format( total_num_suites  )
+    print "  - Number of test cases passed  : {:>3}".format( total_num_cases_passed  )
+    print "  - Number of test cases failed  : {:>3}".format( total_num_cases_failed  )
+  else:
+    print "  - Number of test subprojects   : {:>3}".format( total_num_sprojs  )
+    print "  - Number of test suites passed : {:>3}".format( total_num_suites_passed  )
+    print "  - Number of test suites failed : {:>3}".format( total_num_suites_failed  )
+
+  print ""
+
+main()
+

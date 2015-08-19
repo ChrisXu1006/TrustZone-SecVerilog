@@ -1,0 +1,21 @@
+#=========================================================================
+# Modular C++ Build System Subproject Makefile Fragment
+#=========================================================================
+# Please read the documenation in 'mcppbs-uguide.txt' for more details
+# on how the Modular C++ Build System works.
+
+ubmark_lite_intdeps  = @ubmark_lite_intdeps@
+ubmark_lite_cppflags = @ubmark_lite_cppflags@
+ubmark_lite_ldflags  = @ubmark_lite_ldflags@
+ubmark_lite_libs     = @ubmark_lite_libs@
+
+ubmark_lite_hdrs = \
+  ubmark-lite.h \
+
+ubmark_lite_srcs = \
+
+ubmark_lite_install_prog_srcs = \
+  ubmark-lite-vvadd.cc \
+  ubmark-lite-cmplx-mult.cc \
+  ubmark-lite-bin-search.cc \
+  ubmark-lite-masked-filter.cc \

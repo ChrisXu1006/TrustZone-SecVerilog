@@ -1,0 +1,304 @@
+ 
+****************************************
+Report : area
+Design : TOP
+Version: F-2011.09-SP3
+Date   : Wed Aug 12 14:29:59 2015
+****************************************
+
+Library(s) Used:
+
+    saed90nm_max (File: /opt/cadtools/designkit/synopsys_90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_max.db)
+    gtech (File: /opt/cadtools/synopsys/F-2011.09-SP3/libraries/syn/gtech.db)
+
+Number of ports:                          141
+Number of nets:                          2616
+Number of cells:                           26
+Number of combinational cells:              9
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          5
+Number of references:                      21
+
+Combinational area:       626539.335241
+Noncombinational area:    452934.891525
+Net Interconnect area:    1552498.234032
+
+Total cell area:          1079474.226767
+Total area:               2631972.460799
+
+Information: This design contains unmapped logic. (RPT-7)
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area               Local cell area
+                                  ---------------------  -------------------------------- 
+Hierarchical cell                 Absolute      Percent  Combi-       Noncombi-    Black
+                                  Total         Total    national     national     boxes   Design
+--------------------------------  ------------  -------  -----------  -----------  ------  ----------------------------------------------------------------------------------------------------------------------------------
+TOP                               1079474.2268    100.0      91.2130       0.0000  0.0000  TOP
+DMA_checker                          2440.9510      0.2     841.9880    1598.9630  0.0000  plab5_mcore_DMA_checker_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128
+DMA_ctrl                             6202.0789      0.6    2970.0540    3232.0249  0.0000  plab5_mcore_DMA_Controller_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128
+Debug_checker                        2572.7510      0.2     880.7070    1692.0440  0.0000  plab5_mcore_Debug_checker_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128
+Debug_interface                      4452.7920      0.4    1347.9610    3104.8310  0.0000  plab5_mcore_Debug_Interface_p_addr_nbits32_p_data_nbits128
+data_l1cache_p0                     83380.2722      7.7       0.0000       0.0000  0.0000  plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_2
+data_l1cache_p0/ctrl                 3771.9800      0.3    2598.7930    1173.1870  0.0000  plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_2
+data_l1cache_p0/dpath               79608.2923      7.4   38167.1609    6703.6579  0.0000  plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_2
+data_l1cache_p0/dpath/cachereq_addr_reg
+                                     1824.5660      0.2     989.6040     834.9620  0.0000  vc_EnResetReg_32_00000000_6
+data_l1cache_p0/dpath/cachereq_data_reg
+                                     2159.2580      0.2    1169.4720     989.7860  0.0000  vc_EnResetReg_32_00000000_5
+data_l1cache_p0/dpath/cachereq_type_reg
+                                      162.1730      0.0      74.6220      87.5510  0.0000  vc_EnResetReg_p_nbits3_p_reset_value0_4
+data_l1cache_p0/dpath/data_array        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+data_l1cache_p0/dpath/mask_data_mux
+                                      241.4660      0.0     241.4660       0.0000  0.0000  vc_Mux2_p_nbits32_2
+data_l1cache_p0/dpath/memreq_type_mux
+                                      460.7960      0.0     460.7960       0.0000  0.0000  vc_Mux2_p_nbits28_7
+data_l1cache_p0/dpath/nsb_array_0   13702.9878      1.3    7332.9399    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_4
+data_l1cache_p0/dpath/nsb_array_1   13699.7768      1.3    7329.7289    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_3
+data_l1cache_p0/dpath/read_tag_reg
+                                     1052.4680      0.1     355.7440     696.7240  0.0000  vc_EnResetReg_p_nbits28_p_reset_value0_4
+data_l1cache_p0/dpath/tag_array_0       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+data_l1cache_p0/dpath/tag_array_1       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+data_l1cache_p0/dpath/tag_compare_0
+                                      559.4000      0.1     559.4000       0.0000  0.0000  vc_EqComparator_p_nbits28_8
+data_l1cache_p0/dpath/tag_compare_1
+                                      559.4000      0.1     559.4000       0.0000  0.0000  vc_EqComparator_p_nbits28_7
+data_l1cache_p0/dpath/way_sel_mux     315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_8
+data_l1cache_p1                     84827.5872      7.9       0.0000       0.0000  0.0000  plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_1
+data_l1cache_p1/ctrl                 3817.5310      0.4    2631.4410    1186.0900  0.0000  plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_1
+data_l1cache_p1/dpath               81010.0562      7.5   39946.4758    6858.4829  0.0000  plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_1
+data_l1cache_p1/dpath/cachereq_addr_reg
+                                     1913.9630      0.2    1070.7060     843.2570  0.0000  vc_EnResetReg_32_00000000_4
+data_l1cache_p1/dpath/cachereq_data_reg
+                                     1503.1280      0.1     500.4400    1002.6880  0.0000  vc_EnResetReg_32_00000000_3
+data_l1cache_p1/dpath/cachereq_type_reg
+                                      200.8800      0.0     106.8780      94.0020  0.0000  vc_EnResetReg_p_nbits3_p_reset_value0_3
+data_l1cache_p1/dpath/data_array        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+data_l1cache_p1/dpath/mask_data_mux
+                                      241.4660      0.0     241.4660       0.0000  0.0000  vc_Mux2_p_nbits32_1
+data_l1cache_p1/dpath/memreq_type_mux
+                                      460.7960      0.0     460.7960       0.0000  0.0000  vc_Mux2_p_nbits28_5
+data_l1cache_p1/dpath/nsb_array_0   13700.8128      1.3    7330.7649    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_2
+data_l1cache_p1/dpath/nsb_array_1   13697.6018      1.3    7327.5539    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_1
+data_l1cache_p1/dpath/read_tag_reg
+                                     1052.4680      0.1     355.7440     696.7240  0.0000  vc_EnResetReg_p_nbits28_p_reset_value0_3
+data_l1cache_p1/dpath/tag_array_0       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+data_l1cache_p1/dpath/tag_array_1       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+data_l1cache_p1/dpath/tag_compare_0
+                                      559.4000      0.1     559.4000       0.0000  0.0000  vc_EqComparator_p_nbits28_6
+data_l1cache_p1/dpath/tag_compare_1
+                                      559.4000      0.1     559.4000       0.0000  0.0000  vc_EqComparator_p_nbits28_5
+data_l1cache_p1/dpath/way_sel_mux     315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_6
+data_mem_addr_ctrl                   4599.6850      0.4    2108.6280    2491.0570  0.0000  plab5_mcore_mem_addr_ctrl_fsm_32768_0000c000_8_32_128
+data_mem_arbiter                     4538.0629      0.4    1975.1140    2562.9489  0.0000  plab5_mcore_mem_arbiter_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128
+data_net                           278970.4300     25.8      27.6480       0.0000  0.0000  plab5_mcore_MemNet_Sep_p_mem_opaque_nbits8_p_mem_addr_nbits32_p_mem_data_nbits128_p_num_ports2_p_single_bank1_1
+data_net/req_net                   159488.9482     14.8     103.5080       0.0000  0.0000  plab4_net_RingNetAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_req1_1
+data_net/req_net/router_p0          80490.1381      7.5   11683.8680    9093.3528  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_req1_1
+data_net/req_net/router_p0/in0_queue_data_d1
+                                    10896.1799      1.0    4451.4830    6444.6968  0.0000  vc_Queue_0_128_2_20
+data_net/req_net/router_p0/in0_queue_data_d2
+                                    10895.2579      1.0    4450.5610    6444.6968  0.0000  vc_Queue_0_128_2_19
+data_net/req_net/router_p0/in1_data_queue
+                                    10888.2339      1.0    4443.5370    6444.6968  0.0000  vc_Queue_0_128_2_18
+data_net/req_net/router_p0/in2_queue_data_d1
+                                    10879.8949      1.0    4435.1980    6444.6968  0.0000  vc_Queue_0_128_2_17
+data_net/req_net/router_p0/in2_queue_data_d2
+                                    10879.8949      1.0    4435.1980    6444.6968  0.0000  vc_Queue_0_128_2_16
+data_net/req_net/router_p0/xbar_msg_data
+                                     5273.4561      0.5    5273.4561       0.0000  0.0000  vc_Crossbar3_p_nbits128_4
+data_net/req_net/router_p1          78895.3021      7.3   11553.2580    9038.0568  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_req1_1
+data_net/req_net/router_p1/in0_queue_data_d1
+                                    10890.6509      1.0    4439.5030    6451.1479  0.0000  vc_Queue_0_128_2_15
+data_net/req_net/router_p1/in0_queue_data_d2
+                                    10898.0249      1.0    4446.8770    6451.1479  0.0000  vc_Queue_0_128_2_14
+data_net/req_net/router_p1/in1_data_queue
+                                    10897.4489      1.0    4446.3010    6451.1479  0.0000  vc_Queue_0_128_2_13
+data_net/req_net/router_p1/in2_queue_data_d1
+                                    10897.2749      1.0    4446.1270    6451.1479  0.0000  vc_Queue_0_128_2_12
+data_net/req_net/router_p1/in2_queue_data_d2
+                                    10902.8049      1.0    4451.6570    6451.1479  0.0000  vc_Queue_0_128_2_11
+data_net/req_net/router_p1/xbar_msg_data
+                                     3817.7830      0.4    3817.7830       0.0000  0.0000  vc_Crossbar3_p_nbits128_3
+data_net/resp_net                  119453.8338     11.1     103.5080       0.0000  0.0000  plab4_net_RingNetAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_1
+data_net/resp_net/router_p0         65818.1214      6.1    4594.1280    1421.0940  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_req0_1
+data_net/resp_net/router_p0/in0_queue_data_d1
+                                    10889.1959      1.0    4438.0480    6451.1479  0.0000  vc_Queue_0_128_2_10
+data_net/resp_net/router_p0/in0_queue_data_d2
+                                    10889.1959      1.0    4438.0480    6451.1479  0.0000  vc_Queue_0_128_2_9
+data_net/resp_net/router_p0/in1_data_queue
+                                    10890.9989      1.0    4439.8510    6451.1479  0.0000  vc_Queue_0_128_2_8
+data_net/resp_net/router_p0/in2_queue_data_d1
+                                    10892.8819      1.0    4441.7340    6451.1479  0.0000  vc_Queue_0_128_2_7
+data_net/resp_net/router_p0/in2_queue_data_d2
+                                    10885.1209      1.0    4440.4240    6444.6968  0.0000  vc_Queue_0_128_2_6
+data_net/resp_net/router_p0/xbar_msg_data
+                                     5355.5061      0.5    5355.5061       0.0000  0.0000  vc_Crossbar3_p_nbits128_2
+data_net/resp_net/router_p1         53532.2044      5.0    4389.9250    1222.0300  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_req0_1
+data_net/resp_net/router_p1/in0_queue_data_d1
+                                    10916.4599      1.0    4471.7630    6444.6968  0.0000  vc_Queue_0_128_2_5
+data_net/resp_net/router_p1/in0_queue_data_d2
+                                    10924.9269      1.0    4480.2300    6444.6968  0.0000  vc_Queue_0_128_2_4
+data_net/resp_net/router_p1/in1_data_queue
+                                      171.3020      0.0      90.2020      81.1000  0.0000  vc_Queue_0_128_2_3
+data_net/resp_net/router_p1/in2_queue_data_d1
+                                    10890.8229      1.0    4446.1260    6444.6968  0.0000  vc_Queue_0_128_2_2
+data_net/resp_net/router_p1/in2_queue_data_d2
+                                    10895.2579      1.0    4450.5610    6444.6968  0.0000  vc_Queue_0_128_2_1
+data_net/resp_net/router_p1/xbar_msg_data
+                                     4121.4800      0.4    4121.4800       0.0000  0.0000  vc_Crossbar3_p_nbits128_1
+dcache                             114354.6075     10.6   11423.7940   25756.4908  0.0000  plab3_mem_BlockingCacheSec_fsm1_mode1_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+dcache/cache                        48708.1559      4.5       0.0000       0.0000  0.0000  plab3_mem_BlockingL2Cache_mode1_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+dcache/cache/ctrl                    9685.1731      0.9    5035.6951    4649.4780  0.0000  plab3_mem_BlockingL2CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+dcache/cache/dpath                  39022.9828      3.6   22281.8710    9761.5038  0.0000  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+dcache/cache/dpath/amo_sel_mux       1626.2200      0.2    1626.2200       0.0000  0.0000  vc_Mux4_p_nbits128_1
+dcache/cache/dpath/cachereq_addr_reg
+                                     2335.2480      0.2    1438.5410     896.7070  0.0000  vc_EnResetReg_32_00000000_1
+dcache/cache/dpath/cachereq_opaque_reg
+                                       43.3150      0.0      18.4320      24.8830  0.0000  vc_EnResetReg_p_nbits8_p_reset_value0_1
+dcache/cache/dpath/cachereq_type_reg
+                                      320.6890      0.0     226.6870      94.0020  0.0000  vc_EnResetReg_p_nbits3_p_reset_value0_1
+dcache/cache/dpath/data_array           0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+dcache/cache/dpath/memreq_type_mux
+                                      315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_1
+dcache/cache/dpath/read_tag_reg      1061.6540      0.1     364.9300     696.7240  0.0000  vc_EnResetReg_p_nbits28_p_reset_value0_1
+dcache/cache/dpath/tag_array_0          0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+dcache/cache/dpath/tag_array_1          0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+dcache/cache/dpath/tag_compare_0      470.9200      0.0     470.9200       0.0000  0.0000  vc_EqComparator_p_nbits28_2
+dcache/cache/dpath/tag_compare_1      491.1980      0.0     491.1980       0.0000  0.0000  vc_EqComparator_p_nbits28_1
+dcache/cache/dpath/way_sel_mux        315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_2
+dcache/prebuffer                    27410.1418      2.5    1387.6440     716.0770  0.0000  plab3_mem_PrefetchBuffer_p_mem_nbytes256_p_num_banks1_p_opaque_nbits8_1
+dcache/prebuffer/dpath              25306.4208      2.3   14718.2480   10588.1728  0.0000  plab3_mem_PrefetchBufferDpath_size256_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+dcache/prebuffer/dpath/data_array       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries16
+dcache/prebuffer/dpath/tag_array_0
+                                        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries8
+dcache/prebuffer/dpath/tag_array_1
+                                        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries8
+dcache/procmem_trans                  249.7600      0.0     249.7600       0.0000  0.0000  plab5_mcore_proc2mem_trans_opaque_nbits8_addr_nbits32_proc_data_nbits128_mem_data_nbits128_1
+dcache/sec_checker                    806.2650      0.1     806.2650       0.0000  0.0000  vc_GtComparator_p_nbits32_1
+icache                              79541.0736      7.4    5788.5281    4802.4019  0.0000  plab3_mem_BlockingCacheSec_fsm1_mode0_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+icache/cache                        49108.1998      4.5       0.0000       0.0000  0.0000  plab3_mem_BlockingL2Cache_mode0_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+icache/cache/ctrl                    9689.1761      0.9    5046.1501    4643.0260  0.0000  plab3_mem_BlockingL2CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_0
+icache/cache/dpath                  39419.0237      3.7   22682.4919    9761.5038  0.0000  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_0
+icache/cache/dpath/amo_sel_mux       1626.2200      0.2    1626.2200       0.0000  0.0000  vc_Mux4_p_nbits128_2
+icache/cache/dpath/cachereq_addr_reg
+                                     2315.8930      0.2    1427.4810     888.4120  0.0000  vc_EnResetReg_32_00000000_2
+icache/cache/dpath/cachereq_opaque_reg
+                                       54.4040      0.0      29.5210      24.8830  0.0000  vc_EnResetReg_p_nbits8_p_reset_value0_2
+icache/cache/dpath/cachereq_type_reg
+                                      320.6890      0.0     226.6870      94.0020  0.0000  vc_EnResetReg_p_nbits3_p_reset_value0_2
+icache/cache/dpath/data_array           0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+icache/cache/dpath/memreq_type_mux
+                                      315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_3
+icache/cache/dpath/read_tag_reg      1061.6540      0.1     364.9300     696.7240  0.0000  vc_EnResetReg_p_nbits28_p_reset_value0_2
+icache/cache/dpath/tag_array_0          0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+icache/cache/dpath/tag_array_1          0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+icache/cache/dpath/tag_compare_0      491.1980      0.0     491.1980       0.0000  0.0000  vc_EqComparator_p_nbits28_4
+icache/cache/dpath/tag_compare_1      470.9200      0.0     470.9200       0.0000  0.0000  vc_EqComparator_p_nbits28_3
+icache/cache/dpath/way_sel_mux        318.8680      0.0     318.8680       0.0000  0.0000  vc_Mux2_p_nbits28_4
+icache/prebuffer                    19841.9438      1.8    1462.8260     716.0770  0.0000  plab3_mem_PrefetchBuffer_p_mem_nbytes256_p_num_banks1_p_opaque_nbits8_0
+icache/prebuffer/dpath              17663.0408      1.6   10259.8920    7403.1488  0.0000  plab3_mem_PrefetchBufferDpath_size256_p_idx_shamt0_p_opaque_nbits8_dbw128_0
+icache/prebuffer/dpath/data_array       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries16
+icache/prebuffer/dpath/tag_array_0
+                                        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries8
+icache/prebuffer/dpath/tag_array_1
+                                        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries8
+icache/sec_checker                      0.0000      0.0       0.0000       0.0000  0.0000  vc_GtComparator_p_nbits32_0
+inst_l1cache_p0                     64605.9142      6.0       0.0000       0.0000  0.0000  plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_0
+inst_l1cache_p0/ctrl                 3366.2850      0.3    2211.5300    1154.7550  0.0000  plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_0
+inst_l1cache_p0/dpath               61239.6292      5.7   22384.2468    6432.7159  0.0000  plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_0
+inst_l1cache_p0/dpath/cachereq_addr_reg
+                                     1838.4180      0.2     986.8660     851.5520  0.0000  vc_EnResetReg_32_00000000_10
+inst_l1cache_p0/dpath/data_array        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+inst_l1cache_p0/dpath/mask_data_mux
+                                      241.4660      0.0     241.4660       0.0000  0.0000  vc_Mux2_p_nbits32_4
+inst_l1cache_p0/dpath/memreq_type_mux
+                                      455.2660      0.0     455.2660       0.0000  0.0000  vc_Mux2_p_nbits28_11
+inst_l1cache_p0/dpath/nsb_array_0   13709.8848      1.3    7339.8369    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_0
+inst_l1cache_p0/dpath/nsb_array_1   13713.2418      1.3    7343.1939    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_7
+inst_l1cache_p0/dpath/read_tag_reg
+                                     1054.3120      0.1     357.5880     696.7240  0.0000  vc_EnResetReg_p_nbits28_p_reset_value0_0
+inst_l1cache_p0/dpath/tag_array_0       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+inst_l1cache_p0/dpath/tag_array_1       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+inst_l1cache_p0/dpath/tag_compare_0
+                                      547.4480      0.1     547.4480       0.0000  0.0000  vc_EqComparator_p_nbits28_0
+inst_l1cache_p0/dpath/tag_compare_1
+                                      547.4480      0.1     547.4480       0.0000  0.0000  vc_EqComparator_p_nbits28_11
+inst_l1cache_p0/dpath/way_sel_mux     315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_0
+inst_l1cache_p1                     64346.1552      6.0       0.0000       0.0000  0.0000  plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_3
+inst_l1cache_p1/ctrl                 3380.1400      0.3    2225.3850    1154.7550  0.0000  plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_3
+inst_l1cache_p1/dpath               60966.0152      5.6   22137.4068    6432.7159  0.0000  plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_3
+inst_l1cache_p1/dpath/cachereq_addr_reg
+                                     1821.8280      0.2     986.8660     834.9620  0.0000  vc_EnResetReg_32_00000000_8
+inst_l1cache_p1/dpath/data_array        0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+inst_l1cache_p1/dpath/mask_data_mux
+                                      241.4660      0.0     241.4660       0.0000  0.0000  vc_Mux2_p_nbits32_3
+inst_l1cache_p1/dpath/memreq_type_mux
+                                      449.7360      0.0     449.7360       0.0000  0.0000  vc_Mux2_p_nbits28_9
+inst_l1cache_p1/dpath/nsb_array_0   13713.2398      1.3    7343.1919    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_6
+inst_l1cache_p1/dpath/nsb_array_1   13705.2328      1.3    7335.1849    6370.0479  0.0000  vc_Regfile_1r1w_p_data_nbits1_p_num_entries256_5
+inst_l1cache_p1/dpath/read_tag_reg
+                                     1054.3120      0.1     357.5880     696.7240  0.0000  vc_EnResetReg_p_nbits28_p_reset_value0_5
+inst_l1cache_p1/dpath/tag_array_0       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+inst_l1cache_p1/dpath/tag_array_1       0.0000      0.0       0.0000       0.0000  0.0000  vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+inst_l1cache_p1/dpath/tag_compare_0
+                                      547.4480      0.1     547.4480       0.0000  0.0000  vc_EqComparator_p_nbits28_10
+inst_l1cache_p1/dpath/tag_compare_1
+                                      547.4480      0.1     547.4480       0.0000  0.0000  vc_EqComparator_p_nbits28_9
+inst_l1cache_p1/dpath/way_sel_mux     315.1820      0.0     315.1820       0.0000  0.0000  vc_Mux2_p_nbits28_10
+inst_mem_addr_ctrl                   4414.3300      0.4    1997.0000    2417.3300  0.0000  plab5_mcore_mem_addr_ctrl_fsm_32768_00004000_8_32_128
+inst_net                            83368.4982      7.7       0.0000       0.0000  0.0000  plab5_mcore_MemNet_Sep_p_mem_opaque_nbits8_p_mem_addr_nbits32_p_mem_data_nbits128_p_num_ports2_p_single_bank1_0
+inst_net/req_net                    15338.7108      1.4      25.8770       0.0000  0.0000  plab4_net_RingNetAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_req1_0
+inst_net/req_net/router_p0          11347.9169      1.1    5507.2080    5349.8429  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_req1_0
+inst_net/req_net/router_p0/in0_queue_data_d1
+                                      161.1640      0.0      86.5150      74.6490  0.0000  vc_Queue_0_128_2_0
+inst_net/req_net/router_p0/in0_queue_data_d2
+                                      164.8510      0.0      90.2020      74.6490  0.0000  vc_Queue_0_128_2_39
+inst_net/req_net/router_p0/in1_data_queue
+                                      164.8510      0.0      90.2020      74.6490  0.0000  vc_Queue_0_128_2_38
+inst_net/req_net/router_p1           3964.9170      0.4    1889.6050    1910.4610  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_req1_0
+inst_net/req_net/router_p1/in1_data_queue
+                                      164.8510      0.0      90.2020      74.6490  0.0000  vc_Queue_0_128_2_33
+inst_net/resp_net                   68029.7874      6.3      77.6310       0.0000  0.0000  plab4_net_RingNetAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_0
+inst_net/resp_net/router_p0         40958.3386      3.8    2856.6210    1141.8510  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_req0_0
+inst_net/resp_net/router_p0/in0_queue_data_d1
+                                      178.7030      0.0      97.6030      81.1000  0.0000  vc_Queue_0_128_2_30
+inst_net/resp_net/router_p0/in0_queue_data_d2
+                                      178.7030      0.0      97.6030      81.1000  0.0000  vc_Queue_0_128_2_29
+inst_net/resp_net/router_p0/in1_data_queue
+                                    10885.4689      1.0    4434.3210    6451.1479  0.0000  vc_Queue_0_128_2_28
+inst_net/resp_net/router_p0/in2_queue_data_d1
+                                    10898.1959      1.0    4447.0480    6451.1479  0.0000  vc_Queue_0_128_2_27
+inst_net/resp_net/router_p0/in2_queue_data_d2
+                                    10890.8239      1.0    4446.1270    6444.6968  0.0000  vc_Queue_0_128_2_26
+inst_net/resp_net/router_p0/xbar_msg_data
+                                     3927.9721      0.4    3927.9721       0.0000  0.0000  vc_Crossbar3_p_nbits128_6
+inst_net/resp_net/router_p1         26993.8178      2.5    2117.5780     683.8210  0.0000  plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_req0_0
+inst_net/resp_net/router_p1/in1_data_queue
+                                      144.2170      0.0      69.5680      74.6490  0.0000  vc_Queue_0_128_2_23
+inst_net/resp_net/router_p1/in2_queue_data_d1
+                                    10891.0399      1.0    4446.3430    6444.6968  0.0000  vc_Queue_0_128_2_22
+inst_net/resp_net/router_p1/in2_queue_data_d2
+                                    10893.4159      1.0    4448.7190    6444.6968  0.0000  vc_Queue_0_128_2_21
+inst_net/resp_net/router_p1/xbar_msg_data
+                                     2263.7461      0.2    2263.7461       0.0000  0.0000  vc_Crossbar3_p_nbits128_5
+proc0                               98519.3200      9.1    1374.4090    1692.0440  0.0000  plab2_proc_PipelinedProcDynamic_2_0_00001000
+proc0/ctrl                           4212.2910      0.4    2896.2570    1316.0340  0.0000  plab2_proc_PipelinedProcDynamicCtrl_0
+proc0/dpath                         91240.5760      8.5   11588.8650    8168.9918  0.0000  plab2_proc_PipelinedProcDynamicDpath_2_0_00001000
+proc0/dpath/alu                      9007.8710      0.8    9007.8710       0.0000  0.0000  plab2_proc_Alu_0
+proc0/dpath/imul                     7563.3479      0.7    5108.2240    2455.1239  0.0000  plab1_imul_IntMulVarLat_0
+proc0/dpath/rfile                   54911.5003      5.1     512.4520       0.0000  0.0000  plab2_proc_Regfile_0
+proc0/dpath/rfile/rfile             54399.0483      5.0   28918.8569   25480.1914  0.0000  vc_Regfile_2r1w_p_data_nbits32_p_num_entries32_0
+proc1                               98248.5049      9.1    1373.4880    1692.0440  0.0000  plab2_proc_PipelinedProcDynamic_2_1_00002000
+proc1/ctrl                           4192.1890      0.4    2876.1550    1316.0340  0.0000  plab2_proc_PipelinedProcDynamicCtrl_1
+proc1/dpath                         90990.7840      8.4   11609.9900    7962.5598  0.0000  plab2_proc_PipelinedProcDynamicDpath_2_1_00002000
+proc1/dpath/alu                      8943.3860      0.8    8943.3860       0.0000  0.0000  plab2_proc_Alu_1
+proc1/dpath/imul                     7563.3479      0.7    5108.2240    2455.1239  0.0000  plab1_imul_IntMulVarLat_1
+proc1/dpath/rfile                   54911.5003      5.1     512.4520       0.0000  0.0000  plab2_proc_Regfile_1
+proc1/dpath/rfile/rfile             54399.0483      5.0   28918.8569   25480.1914  0.0000  vc_Regfile_2r1w_p_data_nbits32_p_num_entries32_1
+--------------------------------  ------------  -------  -----------  -----------  ------  ----------------------------------------------------------------------------------------------------------------------------------
+Total                                                    626539.3352  452934.8915  0.0000
+
+1

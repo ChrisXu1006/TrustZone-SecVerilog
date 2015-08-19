@@ -1,0 +1,324 @@
+Loading db file '/opt/cadtools/designkit/synopsys_90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_max.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : TOP
+Version: F-2011.09-SP3
+Date   : Wed Aug 12 20:12:26 2015
+****************************************
+
+
+Library(s) Used:
+
+    saed90nm_max (File: /opt/cadtools/designkit/synopsys_90nm/Digital_Standard_Cell_Library/synopsys/models/saed90nm_max.db)
+    gtech (File: /opt/cadtools/synopsys/F-2011.09-SP3/libraries/syn/gtech.db)
+
+
+Operating Conditions: BEST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+TOP                    ForQA             saed90nm_max
+plab2_proc_PipelinedProcDynamic_2_0_00001000
+                       140000            saed90nm_max
+plab2_proc_PipelinedProcDynamic_2_1_00002000
+                       140000            saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits32_0
+                       8000              saed90nm_max
+plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_0
+                       ForQA             saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128_0
+                       ForQA             saed90nm_max
+plab5_mcore_MemNet_Sep_p_mem_opaque_nbits8_p_mem_addr_nbits32_p_mem_data_nbits128_p_num_ports2_p_single_bank1_0
+                       280000            saed90nm_max
+plab3_mem_BlockingCacheSec_fsm1_mode0_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+                       ForQA             saed90nm_max
+plab3_mem_BlockingCacheSec_fsm1_mode1_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+                       ForQA             saed90nm_max
+plab5_mcore_DMA_checker_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128
+                       ForQA             saed90nm_max
+plab5_mcore_mem_addr_ctrl_fsm_32768_00004000_8_32_128
+                       8000              saed90nm_max
+plab5_mcore_mem_arbiter_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128
+                       8000              saed90nm_max
+plab5_mcore_mem_addr_ctrl_fsm_32768_0000c000_8_32_128
+                       8000              saed90nm_max
+plab2_proc_PipelinedProcDynamicCtrl_0
+                       8000              saed90nm_max
+plab2_proc_PipelinedProcDynamicDpath_2_0_00001000
+                       140000            saed90nm_max
+plab2_proc_PipelinedProcDynamicDpath_2_1_00002000
+                       140000            saed90nm_max
+plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_0
+                       8000              saed90nm_max
+plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_0
+                       ForQA             saed90nm_max
+plab4_net_RingNetAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_0
+                       140000            saed90nm_max
+plab4_net_RingNetAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_0
+                       280000            saed90nm_max
+plab3_mem_PrefetchBuffer_p_mem_nbytes256_p_num_banks1_p_opaque_nbits8_0
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL2Cache_mode0_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+                       ForQA             saed90nm_max
+plab5_mcore_proc2mem_trans_opaque_nbits8_addr_nbits32_proc_data_nbits128_mem_data_nbits128_0
+                       8000              saed90nm_max
+plab3_mem_BlockingL2Cache_mode1_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8
+                       ForQA             saed90nm_max
+plab2_proc_Regfile_0   70000             saed90nm_max
+plab1_imul_IntMulVarLat_0
+                       8000              saed90nm_max
+plab2_proc_Alu_0       16000             saed90nm_max
+vc_EnResetReg_32_00000000_10
+                       8000              saed90nm_max
+vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256
+                       ForQA             saed90nm_max
+vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries512
+                       ForQA             saed90nm_max
+vc_EqComparator_p_nbits28_0
+                       8000              saed90nm_max
+vc_Mux2_p_nbits28_0    8000              saed90nm_max
+vc_EnResetReg_p_nbits28_p_reset_value0_0
+                       8000              saed90nm_max
+vc_Mux2_p_nbits32_4    8000              saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_0
+                       70000             saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_0
+                       35000             saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_0
+                       70000             saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_0
+                       70000             saed90nm_max
+plab3_mem_PrefetchBufferDpath_size256_p_idx_shamt0_p_opaque_nbits8_dbw128_0
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL2CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_0
+                       16000             saed90nm_max
+plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_0
+                       ForQA             saed90nm_max
+vc_Regfile_2r1w_p_data_nbits32_p_num_entries32_0
+                       70000             saed90nm_max
+vc_Queue_0_128_2_0     16000             saed90nm_max
+vc_Crossbar3_p_nbits128_0
+                       8000              saed90nm_max
+vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries8
+                       ForQA             saed90nm_max
+vc_CombinationalSRAM_1rw_p_data_nbits128_p_num_entries16
+                       ForQA             saed90nm_max
+vc_Mux4_p_nbits128_2   8000              saed90nm_max
+plab5_mcore_MemNet_Sep_p_mem_opaque_nbits8_p_mem_addr_nbits32_p_mem_data_nbits128_p_num_ports2_p_single_bank1_1
+                       280000            saed90nm_max
+plab4_net_RingNetAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_1
+                       280000            saed90nm_max
+plab4_net_RingNetAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_num_ports2_1
+                       140000            saed90nm_max
+plab2_proc_Regfile_1   70000             saed90nm_max
+vc_Regfile_2r1w_p_data_nbits32_p_num_entries32_1
+                       70000             saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_1
+                       140000            saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits48_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_1
+                       140000            saed90nm_max
+plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                       ForQA             saed90nm_max
+plab3_mem_PrefetchBuffer_p_mem_nbytes256_p_num_banks1_p_opaque_nbits8_1
+                       ForQA             saed90nm_max
+plab3_mem_PrefetchBufferDpath_size256_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                       ForQA             saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id1_p_num_routers2_1
+                       35000             saed90nm_max
+plab4_net_RouterAlt_Sep_p_payload_cnbits17_p_payload_dnbits128_p_opaque_nbits4_p_srcdest_nbits1_p_router_id0_p_num_routers2_1
+                       70000             saed90nm_max
+plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_1
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_2
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL1Cache_p_mem_nbytes8192_p_num_banks1_p_opaque_nbits8_3
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_1
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_2
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL1CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_3
+                       ForQA             saed90nm_max
+plab3_mem_BlockingL2CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                       16000             saed90nm_max
+plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_1
+                       8000              saed90nm_max
+plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_2
+                       8000              saed90nm_max
+plab3_mem_BlockingL1CacheCtrl_size8192_p_idx_shamt0_p_opaque_nbits8_3
+                       8000              saed90nm_max
+vc_EnResetReg_p_nbits28_p_reset_value0_1
+                       8000              saed90nm_max
+vc_EnResetReg_p_nbits28_p_reset_value0_2
+                       8000              saed90nm_max
+vc_EnResetReg_p_nbits28_p_reset_value0_3
+                       8000              saed90nm_max
+vc_EnResetReg_p_nbits28_p_reset_value0_4
+                       8000              saed90nm_max
+vc_EnResetReg_p_nbits28_p_reset_value0_5
+                       8000              saed90nm_max
+plab2_proc_PipelinedProcDynamicCtrl_1
+                       8000              saed90nm_max
+plab5_mcore_proc2mem_trans_opaque_nbits8_addr_nbits32_proc_data_nbits128_mem_data_nbits128_1
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_1
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_2
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_3
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_4
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_5
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_6
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_7
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_8
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_9
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_10
+                       8000              saed90nm_max
+vc_EqComparator_p_nbits28_11
+                       8000              saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128_1
+                       ForQA             saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128_2
+                       ForQA             saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits128_3
+                       ForQA             saed90nm_max
+vc_EnResetReg_32_00000000_1
+                       8000              saed90nm_max
+vc_EnResetReg_32_00000000_2
+                       8000              saed90nm_max
+vc_EnResetReg_32_00000000_3
+                       8000              saed90nm_max
+vc_EnResetReg_32_00000000_4
+                       8000              saed90nm_max
+vc_EnResetReg_32_00000000_5
+                       8000              saed90nm_max
+vc_EnResetReg_32_00000000_6
+                       8000              saed90nm_max
+vc_EnResetReg_32_00000000_8
+                       8000              saed90nm_max
+vc_EnResetReg_p_nbits3_p_reset_value0_1
+                       ForQA             saed90nm_max
+vc_EnResetReg_p_nbits3_p_reset_value0_2
+                       ForQA             saed90nm_max
+vc_EnResetReg_p_nbits3_p_reset_value0_3
+                       ForQA             saed90nm_max
+vc_EnResetReg_p_nbits3_p_reset_value0_4
+                       ForQA             saed90nm_max
+vc_Queue_0_128_2_1     16000             saed90nm_max
+vc_Queue_0_128_2_2     16000             saed90nm_max
+vc_Queue_0_128_2_6     16000             saed90nm_max
+vc_Queue_0_128_2_7     16000             saed90nm_max
+vc_Queue_0_128_2_8     16000             saed90nm_max
+vc_Queue_0_128_2_11    16000             saed90nm_max
+vc_Queue_0_128_2_12    16000             saed90nm_max
+vc_Queue_0_128_2_13    16000             saed90nm_max
+vc_Queue_0_128_2_14    16000             saed90nm_max
+vc_Queue_0_128_2_15    16000             saed90nm_max
+vc_Queue_0_128_2_16    16000             saed90nm_max
+vc_Queue_0_128_2_17    16000             saed90nm_max
+vc_Queue_0_128_2_18    16000             saed90nm_max
+vc_Queue_0_128_2_19    16000             saed90nm_max
+vc_Queue_0_128_2_20    16000             saed90nm_max
+vc_Queue_0_128_2_21    16000             saed90nm_max
+vc_Queue_0_128_2_22    16000             saed90nm_max
+vc_Queue_0_128_2_23    ForQA             saed90nm_max
+vc_Queue_0_128_2_24    16000             saed90nm_max
+vc_Queue_0_128_2_25    16000             saed90nm_max
+vc_Queue_0_128_2_26    16000             saed90nm_max
+vc_Queue_0_128_2_27    16000             saed90nm_max
+vc_Queue_0_128_2_28    16000             saed90nm_max
+vc_Queue_0_128_2_29    16000             saed90nm_max
+vc_Queue_0_128_2_30    16000             saed90nm_max
+vc_Queue_0_128_2_33    ForQA             saed90nm_max
+vc_Queue_0_128_2_34    16000             saed90nm_max
+vc_Queue_0_128_2_35    16000             saed90nm_max
+vc_Queue_0_128_2_38    ForQA             saed90nm_max
+vc_Queue_0_128_2_39    16000             saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits32_1
+                       8000              saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits32_2
+                       8000              saed90nm_max
+plab5_mcore_proc_resp_acc_p_opaque_nbits8_p_addr_nbits32_p_data_nbits32_3
+                       8000              saed90nm_max
+plab2_proc_Alu_1       16000             saed90nm_max
+vc_Mux4_p_nbits128_1   8000              saed90nm_max
+vc_EnResetReg_p_nbits8_p_reset_value0_1
+                       ForQA             saed90nm_max
+vc_EnResetReg_p_nbits8_p_reset_value0_2
+                       ForQA             saed90nm_max
+vc_Mux2_p_nbits32_1    8000              saed90nm_max
+vc_Mux2_p_nbits32_2    8000              saed90nm_max
+vc_Mux2_p_nbits32_3    8000              saed90nm_max
+plab1_imul_IntMulVarLat_1
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_1
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_2
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_3
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_4
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_5
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_6
+                       8000              saed90nm_max
+vc_Crossbar3_p_nbits128_7
+                       8000              saed90nm_max
+vc_Mux2_p_nbits28_1    8000              saed90nm_max
+vc_Mux2_p_nbits28_2    8000              saed90nm_max
+vc_Mux2_p_nbits28_3    8000              saed90nm_max
+vc_Mux2_p_nbits28_4    8000              saed90nm_max
+vc_Mux2_p_nbits28_5    8000              saed90nm_max
+vc_Mux2_p_nbits28_6    8000              saed90nm_max
+vc_Mux2_p_nbits28_7    8000              saed90nm_max
+vc_Mux2_p_nbits28_8    8000              saed90nm_max
+vc_Mux2_p_nbits28_9    8000              saed90nm_max
+vc_Mux2_p_nbits28_10   8000              saed90nm_max
+vc_Mux2_p_nbits28_11   8000              saed90nm_max
+
+
+Global Operating Voltage = 1.32 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  = 112.0359 mW   (54%)
+  Net Switching Power  =  96.0396 mW   (46%)
+                         ---------
+Total Dynamic Power    = 208.0755 mW  (100%)
+
+Cell Leakage Power     =  10.0733 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register          84.3052            0.9292        2.4336e+09           87.6679  (  40.19%)
+sequential         0.1244        8.1312e-02        5.7284e+08            0.7785  (   0.36%)
+combinational     27.6129           95.0271        7.0673e+09          129.7123  (  59.46%)
+--------------------------------------------------------------------------------------------------
+Total            112.0425 mW        96.0376 mW     1.0074e+10 pW       218.1587 mW
+1

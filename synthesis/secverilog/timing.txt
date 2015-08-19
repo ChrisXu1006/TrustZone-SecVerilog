@@ -1,0 +1,630 @@
+Information: Updating graph... (UID-83)
+Warning: Design 'TOP' contains 31 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Timing loop detected. (OPT-150)
+	data_mem_arbiter/U44/IN1 data_mem_arbiter/U44/QN data_mem_arbiter/req_domain_reg/CLK data_mem_arbiter/req_domain_reg/Q 
+Information: Timing loop detected. (OPT-150)
+	inst_net/req_net/U5/IN inst_net/req_net/U5/QN inst_net/req_net/U28/S inst_net/req_net/U28/Q inst_net/req_net/router_p1/U108/IN2 inst_net/req_net/router_p1/U108/Q inst_net/req_net/router_p1/U173/ISO inst_net/req_net/router_p1/U173/Q inst_net/req_net/router_p1/U95/IN1 inst_net/req_net/router_p1/U95/QN inst_net/req_net/router_p1/U96/IN1 inst_net/req_net/router_p1/U96/QN inst_net/req_net/router_p1/U7/IN1 inst_net/req_net/router_p1/U7/QN inst_net/req_net/router_p1/U754/IN1 inst_net/req_net/router_p1/U754/QN inst_net/req_net/router_p1/out2_ctrl/out_domain_reg/CLK inst_net/req_net/router_p1/out2_ctrl/out_domain_reg/Q inst_net/req_net/router_p1/U10/IN1 inst_net/req_net/router_p1/U10/Q inst_net/req_net/U6/IN inst_net/req_net/U6/QN 
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_mem_arbiter/req_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_mem_arbiter/req_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/req_net/router_p1/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/req_net/router_p1/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/req_net/router_p1/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/req_net/router_p1/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/req_net/router_p0/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/req_net/router_p0/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/req_net/router_p0/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/req_net/router_p0/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p0/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p0/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p1/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p1/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p1/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p1/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p1/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p1/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p0/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p0/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'inst_net/resp_net/router_p0/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'inst_net/resp_net/router_p0/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p0/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p0/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p0/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p0/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p0/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p0/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p1/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p1/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p1/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p1/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p1/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p1/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p1/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p1/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p1/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p1/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p0/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p0/out2_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/req_net/router_p0/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/req_net/router_p0/out2_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/resp_net/router_p0/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/resp_net/router_p0/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/resp_net/router_p0/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[0]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/resp_net/router_p1/out0_ctrl/xbar_sel_reg[1]'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'Q' on cell 'data_net/resp_net/router_p1/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Warning: Disabling timing arc between pins 'CLK' and 'QN' on cell 'data_net/resp_net/router_p1/out0_ctrl/out_domain_reg'
+         to break a timing loop. (OPT-314)
+Information: Updating design information... (UID-85)
+Warning: Design 'TOP' contains 31 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nworst 10
+        -max_paths 10
+Design : TOP
+Version: F-2011.09-SP3
+Date   : Wed Aug 12 20:08:49 2015
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: BEST   Library: saed90nm_max
+Wire Load Model Mode: enclosed
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[12]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][9]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[12]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[12]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U14/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[12] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U10/Q (AOBUFX4)                     46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[9] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][9]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][9]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[13]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][10]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[13]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[13]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U15/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[13] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U9/Q (AOBUFX4)                      46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[10] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][10]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][10]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[14]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][11]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[14]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[14]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U16/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[14] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U8/Q (AOBUFX4)                      46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[11] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][11]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][11]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[15]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][12]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[15]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[15]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U21/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[15] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U7/Q (AOBUFX4)                      46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[12] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][12]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][12]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[16]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][13]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[16]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[16]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U20/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[16] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U6/Q (AOBUFX4)                      46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[13] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][13]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][13]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[17]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][14]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[17]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[17]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U28/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[17] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U5/Q (AOBUFX4)                      46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[14] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][14]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][14]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[18]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][15]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[18]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[18]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U22/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[18] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U4/Q (AOBUFX4)                      46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[15] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][15]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][15]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[19]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][16]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[19]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[19]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U23/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[19] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U18/Q (AOBUFX4)                     46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[16] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][16]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][16]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[20]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][17]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[20]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[20]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U24/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[20] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U17/Q (AOBUFX4)                     46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[17] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][17]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][17]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+  Startpoint: dcache/cache/dpath/cachereq_addr_reg/q_reg[21]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: dcache/cache/dpath/tag_array_0/mem_reg[0][18]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TOP                ForQA                 saed90nm_max
+  vc_EnResetReg_32_00000000_1
+                     8000                  saed90nm_max
+  plab3_mem_BlockingL2CacheDpath_size8192_p_idx_shamt0_p_opaque_nbits8_dbw128_1
+                     ForQA                 saed90nm_max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.20       0.20
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[21]/CLK (DFFX2)
+                                                          0.00 #     0.20 r
+  dcache/cache/dpath/cachereq_addr_reg/q_reg[21]/QN (DFFX2)
+                                                          0.14       0.34 r
+  dcache/cache/dpath/cachereq_addr_reg/U25/QN (INVX32)
+                                                          6.36       6.70 f
+  dcache/cache/dpath/cachereq_addr_reg/q[21] (vc_EnResetReg_32_00000000_1)
+                                                          0.00       6.70 f
+  dcache/cache/dpath/U16/Q (AOBUFX4)                     46.43      53.13 f
+  dcache/cache/dpath/tag_array_0/write_data[18] (vc_CombinationalSRAM_1rw_p_data_nbits32_p_num_entries256)
+                                                          0.00      53.13 f
+  dcache/cache/dpath/tag_array_0/mem_reg[0][18]/next_state (**SEQGEN**)
+                                                          0.00      53.13 f
+  data arrival time                                                 53.13
+
+  clock clk (rise edge)                                   5.00       5.00
+  clock network delay (ideal)                             0.20       5.20
+  clock uncertainty                                      -0.10       5.10
+  dcache/cache/dpath/tag_array_0/mem_reg[0][18]/clocked_on (**SEQGEN**)
+                                                          0.00       5.10 r
+  library setup time                                      0.00       5.10
+  data required time                                                 5.10
+  --------------------------------------------------------------------------
+  data required time                                                 5.10
+  data arrival time                                                -53.13
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                 -48.03
+
+
+1

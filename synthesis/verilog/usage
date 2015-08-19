@@ -1,0 +1,9 @@
+source /opt/cadtools/synopsys/synopsys.cshrc
+
+Option 1 (shell):
+dc_shell
+source script_file
+
+Option 2 (GUI):
+design_vision
+http://www.tkt.cs.tut.fi/tools/public/tutorials/synopsys/design_compiler/gsdc.html

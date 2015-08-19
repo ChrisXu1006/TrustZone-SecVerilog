@@ -1,0 +1,46 @@
+ 
+****************************************
+Report : constraint
+Design : TOP
+Version: F-2011.09-SP3
+Date   : Wed Aug 12 20:12:43 2015
+****************************************
+
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                         48.03      1.00     48.03
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                 48.03
+
+                              Total Neg  Critical
+    Group (critical_range)      Slack    Endpoints   Cost
+    -----------------------------------------------------
+    clk                      5784392.50
+                                           9728  467246.66
+    default                      0.00         0      0.00
+    -----------------------------------------------------
+    critical_range                               467246.66
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk (no fix_hold)            0.00      1.00      0.00
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    max_transition                               16508.80 (VIOLATED)
+    max_delay/setup                                 48.03 (VIOLATED)
+    sequential_clock_pulse_width                 235386.00
+                                                          (VIOLATED)
+    critical_range                               467246.66
+                                                          (VIOLATED)
+
+
+1

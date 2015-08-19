@@ -1,0 +1,88 @@
+#!/bin/bash
+
+if [ ! -d "dep" ]; then
+  mkdir dep
+fi
+
+if [ ! -d "obj" ]; then
+  mkdir obj
+fi
+
+if [ ! -d "bin" ]; then
+  mkdir bin
+fi
+
+if [ ! -d "dump" ]; then
+  mkdir dump
+fi
+
+if [ ! -d "vmh-cache" ]; then
+  mkdir vmh-cache
+fi
+
+cp *bmark* bin/
+mv bin/*bmark*.* dep/
+mv dep/*bmark-config.h .
+mv dep/*bmark.mk .
+mv dep/*bmark*.o obj/
+for x in bin/*;do maven-objdump -DC --disassemble-zeroes --section=.text --section=.data --section=.sdata --section=.xcpthandler --section=.init --section=.fini --section=.ctors --section=.dtors --section=.eh_frame --section=.jcr --section=.sbss --section=.bss --section=.rodata $x > $x.dump;done
+mv bin/*.dump dump/
+for x in dump/ubmark*;
+do
+sed -i '
+/<\_start>/ i\
+00000f00 <_bootstrap>:\
+\     f00:	3c1d000f 	lui	sp,0xf\
+\     f04:	37bdfffc 	ori	sp,sp,4095\
+\     f08:	08000408	j	1020\
+' $x;
+sed -i '
+/1008:/ c\
+\    1008:	080003c0 	j	f00
+' $x;
+python ../scripts/objdump2vmh-cache.py -f $x;
+done
+for x in dump/*tbmark*;
+do
+sed -i '
+/<\_start>/ i\
+00000f00 <_bootstrap>:\
+\     f00:	3c1d000f 	lui	sp,0xf\
+\     f04:	37bdfffc 	ori	sp,sp,4095\
+\     f08:	24071000	li	t0,0x1000\
+\     f0c:	40088800	mfc0	t1,$17\
+\     f10:	70e84802	mul	t2,t0,t1\
+\     f14:	03a9e823	subu	sp,sp,t2\
+\     f18:	08000408	j	1020\
+' $x;
+sed -i '
+/1008:/ c\
+\    1008:	080003c0 	j	f00
+' $x;
+python ../scripts/objdump2vmh-cache.py -f $x;
+done
+
+# do
+# #sed -i '' '
+# sed -i '
+# /<\_start>/ i\
+# 00808000 <_bootstrap>:\
+# \  808000:      3c1d000f 	lui	sp,0xf\
+# \  808004:	37bdfffc 	ori	sp,sp,4095\
+# \  808008:	24071000	li	t0,0x1000\
+# \  80800c:	40088800	mfc0	t1,$17\
+# \  808010:	70e84802	mul	t2,t0,t1\
+# \  808014:	03a9e823	subu	sp,sp,t2\
+# \  808018:	08000400	j	1000\
+# \
+# ' $x;
+# #sed -i '' '
+# #/1008:/ c\
+# #\    1008:	08000408 	j	1020\
+# sed -i '
+# /1008:/ c\
+# \    1008:	08000408 	j	1020
+# ' $x;
+# python ../scripts/objdump2vmh-cache.py -f $x;
+# done
+mv dump/*.vmh vmh-cache/

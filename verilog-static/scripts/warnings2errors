@@ -1,0 +1,40 @@
+#!/bin/bash
+#=========================================================================
+# warnings2errors <command-line>
+#=========================================================================
+# This script will run whatever is given on the command line, but it
+# captures the output of this command and then searches it for any
+# instances of the word " warning:". If it finds a warning then it will
+# exit with a non-zero exit code. Essentially, this makes warnings
+# errors.
+
+# Create a temporary file
+
+tmp_file=$(mktemp "/tmp/warnings2errors.XXXXX")
+
+# Run the command and capture all stdout/stderr to temp file
+
+"$@" 2>&1 | tee ${tmp_file}
+cmd_exit_status="${PIPESTATUS[0]}"
+
+# If the command had a non-zero exit status, then we are done
+
+if [[ "${cmd_exit_status}" != "0" ]]; then
+  rm -rf "${tmp_file}"
+  exit "${cmd_exit_status}"
+fi
+
+# Otherwise, grep the temp file for any warnings, and if we found one
+# then exit with error code 1
+
+grep -q " warning:" ${tmp_file}
+if [[ $? == 0 ]]; then
+  echo "Warnings are treated as errors!"
+  rm -rf "${tmp_file}"
+  exit 1
+fi
+
+# We made it so we can return a zero exit status
+
+exit 0
+
